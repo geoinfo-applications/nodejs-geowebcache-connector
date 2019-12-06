@@ -1,0 +1,56 @@
+{
+  "name": "@geoinfo/nodejs-geowebcache-connector",
+  "version": "0.0.3",
+  "description": "NodeJS bindings for GeoWebCache Rest API",
+  "main": "module.js",
+  "repository": {
+    "type": "git",
+    "url": "http://git.geoinfo.ch/scm/ngp/geowebcachemanager.git"
+  },
+  "author": "GEOINFO Applications AG",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "registry": "http://npm.geoinfo.ch"
+  },
+  "engines": {
+    "node": "^4.0.0",
+    "npm": ">3.3.0"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-env": "^0.4.2",
+    "grunt-exec": "^0.4.6",
+    "js2xmlparser": "^1.0.0",
+    "load-grunt-tasks": "^3.1.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^5.6.1",
+    "grunt": "^1.0.3",
+    "grunt-apidoc": "^0.11.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-david": "bschaepper/grunt-david",
+    "grunt-env": "^0.4.2",
+    "grunt-eslint": "^21.0.0",
+    "grunt-exec": "^1.0.1",
+    "grunt-jsdoc": "^2.1.0",
+    "grunt-mocha-istanbul": "^5.0.2",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-plato": "^1.3.0",
+    "grunt-release": "^0.14.0",
+    "grunt-todo": "^0.5.0",
+    "grunt-tslint": "^5.0.2",
+    "istanbul": "1.1.0-alpha.1",
+    "load-grunt-tasks": "^3.5.0",
+    "mocha": "^3.1.2",
+    "mocha-bamboo-reporter": "*",
+    "mocha-multi": "*",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0",
+    "time-grunt": "^1.3.0"
+  }
+}

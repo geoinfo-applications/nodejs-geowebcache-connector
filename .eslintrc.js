@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = {
     "env": {
         "browser": false,
@@ -8,12 +6,10 @@ module.exports = {
         "mocha": true
     },
     "extends": "eslint:recommended",
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "script"
     },
-    "plugins": ["@typescript-eslint"],
     "rules": {
         "max-len": [
             2,

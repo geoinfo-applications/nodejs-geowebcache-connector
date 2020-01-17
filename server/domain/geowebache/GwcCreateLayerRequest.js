@@ -34,32 +34,39 @@ class GwcCreateLayerRequest extends GwcRequest {
 
     get parameterFilters() {
         if (!this.layerDefinition.parameterFilters) {
-            return;
+            return undefined;
         }
 
         const parameterFilters = {};
 
         for (const key of Object.keys(this.layerDefinition.parameterFilters)) {
             const param = this.layerDefinition.parameterFilters[key];
-            parameterFilters[param.type + "ParameterFilter"] = parameterFilters[param.type + "ParameterFilter"] || [];
-            const paramFilter = { key };
+            const paramFilterType = param.type + "ParameterFilter";
 
-            if (param.defaultValue) {
-                paramFilter.defaultValue = param.defaultValue;
-            }
-
-            if (param.type === "string" && param.values) {
-                paramFilter.values = { string: param.values };
-            }
-
-            if (param.type === "regex") {
-                paramFilter.regex = param.regex;
-            }
-
-            parameterFilters[param.type + "ParameterFilter"].push(paramFilter);
+            parameterFilters[paramFilterType] = parameterFilters[paramFilterType] || [];
+            const paramFilter = this.formatParameterFilter(key, param);
+            parameterFilters[paramFilterType].push(paramFilter);
         }
 
         return parameterFilters;
+    }
+
+    formatParameterFilter(key, param) {
+        const paramFilter = { key };
+
+        if (param.defaultValue) {
+            paramFilter.defaultValue = param.defaultValue;
+        }
+
+        if (param.type === "string" && param.values) {
+            paramFilter.values = { string: param.values };
+        }
+
+        if (param.type === "regex") {
+            paramFilter.regex = param.regex;
+        }
+
+        return paramFilter;
     }
 
     get formatModifiers() {

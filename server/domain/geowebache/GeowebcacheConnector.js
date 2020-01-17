@@ -130,10 +130,10 @@ class GeowebcacheConnector {
         return deferred.promise;
     }
 
-    truncateMapCache(mapLayerDefinitions, params) {
-        return GeowebcacheConnector.sequential(mapLayerDefinitions, (layerDefinition) => {
-            return this.truncateMapLayerCache(layerDefinition, params).catch((error) => this.logger.error(error));
-        });
+    async truncateMapCache(mapLayerDefinitions, params) {
+        for (const layerDefinition of mapLayerDefinitions) {
+            await this.truncateMapLayerCache(layerDefinition, params).catch((error) => this.logger.error(error));
+        }
     }
 
     truncateMapLayerCache(layerDefinition, params) {
@@ -192,10 +192,10 @@ class GeowebcacheConnector {
         return deferred.promise;
     }
 
-    seedMapCache(mapLayerDefinitions, params) {
-        return GeowebcacheConnector.sequential(mapLayerDefinitions, (layerDefinition) => {
-            return this.seedMapLayerCache(layerDefinition, params).catch((error) => this.logger.error(error));
-        });
+    async seedMapCache(mapLayerDefinitions, params) {
+        for (const layerDefinition of mapLayerDefinitions) {
+            await this.seedMapLayerCache(layerDefinition, params).catch((error) => this.logger.error(error));
+        }
     }
 
     seedMapLayerCache(layerDefinition, params) {
@@ -249,24 +249,24 @@ class GeowebcacheConnector {
         return deferred.promise;
     }
 
-    deleteMapCache(mapLayerDefinitions) {
-        return GeowebcacheConnector.sequential(mapLayerDefinitions, async (layerDefinition) => {
+    async deleteMapCache(mapLayerDefinitions) {
+        for (const layerDefinition of mapLayerDefinitions) {
             if (await this.existCacheLayer(layerDefinition)) {
                 await this.truncateWholeCacheLayer(layerDefinition);
                 await this.deleteCacheLayer(layerDefinition);
             }
-        });
+        }
     }
 
-    createOrUpdateMapCache(mapLayerDefinitions) {
-        return GeowebcacheConnector.sequential(mapLayerDefinitions, async (layerDefinition) => {
+    async createOrUpdateMapCache(mapLayerDefinitions) {
+        for (const layerDefinition of mapLayerDefinitions) {
             if (await this.existCacheLayer(layerDefinition)) {
                 await this.deleteCacheLayer(layerDefinition);
                 await this.truncateWholeCacheLayer(layerDefinition);
             }
 
             await this.createCacheLayer(layerDefinition);
-        });
+        }
     }
 
     static sequential(list, iterator, catcher = null) {

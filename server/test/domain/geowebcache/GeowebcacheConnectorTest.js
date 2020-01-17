@@ -1,14 +1,12 @@
 "use strict";
 
 describe("Geowebcache Connector Test", function () {
-    // jshint maxstatements: 23
 
     const Q = require("q");
     const chai = require("chai");
     const expect = chai.expect;
     const sinon = require("sinon");
     const sinonChai = require("sinon-chai");
-    const logger = require("@geolib/geolib-server/test/TestUtils").logger;
     chai.use(sinonChai);
 
     this.timeout(500);
@@ -23,7 +21,7 @@ describe("Geowebcache Connector Test", function () {
             urlWmsService: "//testwms/"
         };
 
-        gwcConnector = new GeowebcacheConnector(config, logger);
+        gwcConnector = new GeowebcacheConnector(config);
 
         gwcConnector.getRequest = sinon.stub();
         gwcConnector.createResponseListener = sinon.spy((config) => config.deferred.resolve());

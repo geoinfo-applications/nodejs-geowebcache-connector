@@ -54,7 +54,7 @@ class GwcCreateLayerRequest extends GwcRequest {
     formatParameterFilter(key, param) {
         const paramFilter = { key };
 
-        if (param.defaultValue) {
+        if (this.hasDefaultValue(param)) {
             paramFilter.defaultValue = param.defaultValue;
         }
 
@@ -67,6 +67,10 @@ class GwcCreateLayerRequest extends GwcRequest {
         }
 
         return paramFilter;
+    }
+
+    hasDefaultValue(param) {
+        return param.defaultValue !== null && param.defaultValue !== undefined;
     }
 
     get formatModifiers() {

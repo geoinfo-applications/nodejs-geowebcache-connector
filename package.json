@@ -15,17 +15,14 @@
     "npm": ">6.13.4"
   },
   "dependencies": {
-    "grunt": "^1.0.3",
-    "grunt-cli": "^1.2.0",
-    "grunt-env": "^0.4.2",
-    "grunt-exec": "^0.4.6",
     "js2xmlparser": "^1.0.0",
-    "load-grunt-tasks": "^3.5.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^5.6.1",
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.2.0",
     "grunt-env": "^0.4.2",
     "grunt-eslint": "^21.0.0",
     "grunt-exec": "^1.0.1",
@@ -35,6 +32,7 @@
     "grunt-release": "^0.14.0",
     "grunt-todo": "^0.5.0",
     "istanbul": "1.1.0-alpha.1",
+    "load-grunt-tasks": "^3.5.0",
     "mocha": "^3.1.2",
     "mocha-bamboo-reporter": "*",
     "mocha-multi": "*",

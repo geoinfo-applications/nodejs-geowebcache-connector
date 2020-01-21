@@ -91,5 +91,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask("code-check", ["eslint", "todo"]);
     grunt.registerTask("test", ["eslint", "mochaTest"]);
-    grunt.registerTask("build", ["code-check", "env:build", "mocha_istanbul:bambooCoverage", "plato"]);
+    grunt.registerTask("build", ["code-check", "env:build", "mocha_istanbul:bambooCoverage"]);
 };

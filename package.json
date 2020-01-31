@@ -1,6 +1,6 @@
 {
   "name": "@geoinfo/nodejs-geowebcache-connector",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "NodeJS bindings for GeoWebCache Rest API",
   "main": "module.js",
   "repository": {
